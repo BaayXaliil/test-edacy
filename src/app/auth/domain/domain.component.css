@@ -1,0 +1,195 @@
+header {
+  margin-bottom: 15px;
+}
+header h2 {
+  background: #fbf3d7;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.container {
+  padding: 30px;
+  display: flex;
+  font-weight: 500;
+  flex-direction: column;
+  align-items: center;
+}
+.container-header {
+  margin: 25px 0 50px;
+  text-align: center;
+}
+.title {
+  margin: 0;
+}
+.subtitle {
+  margin-top: 10px;
+  color: gray;
+}
+
+.form {
+  width: 400px;
+}
+.form .form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.form-group .input {
+  border: 2px solid #cac7c7;
+  position: relative;
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+}
+.input input {
+  height: 45px;
+  font-size: 16px;
+  outline: none;
+  padding: 0 10px;
+  border: none;
+  border-radius: 2px;
+  width: 65%;
+  font-family: "Montserrat";
+  font-weight: 500;
+}
+.input-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid #cac7c7;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+}
+.input .extension {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-weight: 600;
+  color: black;
+}
+label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.far {
+  font-size: 34px;
+  position: absolute;
+  right: -55px;
+  top: 35px;
+}
+.fa-check-circle {
+  color: #36c2a4;
+}
+.fa-times-circle {
+  color: red;
+}
+.form-check {
+  position: relative;
+  margin: 12px 0;
+  padding-left: 35px;
+  cursor: pointer;
+  user-select: none;
+}
+.form-check input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  cursor: pointer;
+}
+.form-check .checkmark {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 4px solid #cac7c7;
+  border-radius: 50%;
+}
+
+/* When the checkbox is checked, add a blue background */
+.form-check input:checked ~ .checkmark {
+  background-color: #36c2a4;
+  border-color: black;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.form-check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.form-check .checkmark:after {
+  left: 5px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+}
+.btn {
+  cursor: pointer;
+}
+.btn:disabled {
+  cursor: not-allowed;
+}
+.btn-success {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #36c2a4;
+  color: black;
+  width: 80%;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+}
+
+.error {
+  display: none;
+  margin-top: 8px;
+}
+.form-control.ng-invalid.ng-dirty ~ .error,
+.confirm-password.ng-dirty ~ .error.danger {
+  display: block;
+  color: red;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.error.succes {
+  display: block;
+  color: #36c2a4;
+}
+.error.danger {
+  display: block;
+  color: red;
+}
+.login {
+  color: black;
+  font-weight: 600;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.login span {
+  color: #36c2a4;
+  cursor: pointer;
+}

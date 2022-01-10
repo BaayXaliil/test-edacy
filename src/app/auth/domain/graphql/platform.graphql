@@ -1,0 +1,8 @@
+mutation CreatePlatform($platformInput: PlatformInput!) {
+  createPlatform(platformInput: $platformInput) {
+    subdomain
+    source
+    defaultLanguage
+    theme {primaryColor secondaryColor logo favicon }
+  }
+}

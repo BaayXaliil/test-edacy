@@ -1,0 +1,8 @@
+{
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "default": "https://edacy-api-v2-test.herokuapp.com/graphql"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-secondary);
+  padding: 20px 10px;
+  padding-right: 20px;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 200;
+  height: 90px;
+}
+header.private {
+  background-color: #ffcc00 !important;
+}
+.header-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  min-width: 341px !important;
+}
+.header-right .program {
+  text-transform: uppercase;
+}
+.header-right .profile .fas {
+  font-size: 35px;
+}
+.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile img {
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+}
+.header-right .notication .fas {
+  font-size: 20px;
+}
+.notication {
+  position: relative;
+}
+.header-right .notication div {
+  position: absolute;
+  width: 18px;
+  height: 15px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+  right: -8px;
+  top: -5px;
+}
+
+.header .btn {
+  background-color: white;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+.header .btn span {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid;
+  text-align: center;
+  color: var(--color-primary);
+  background: #edfefc;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+.user img {
+  height: 50px;
+  margin-right: 100px;
+  border-radius: 5px;
+}
+
+.user .button .btn {
+  border-radius: 20px;
+  color: green;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: inherit;
+}

@@ -1,0 +1,97 @@
+header {
+  margin-bottom: 35px;
+}
+header h2 {
+  background: #fbf3d7;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container h3 {
+  margin-top: 0;
+}
+
+.form {
+  color: darkgray;
+  width: 400px;
+}
+form {
+  padding: 30px;
+  background: #efefef;
+  border-radius: 8px;
+  color: gray;
+}
+.form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.form-group input {
+  height: 40px;
+  font-size: 14px;
+  outline: none;
+  padding: 0 5px;
+  border: none;
+  border-radius: 2px;
+}
+
+.btn {
+  cursor: pointer;
+}
+.btn:disabled {
+  cursor: not-allowed;
+}
+.btn-success {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #36c2a4;
+  color: black;
+  width: 80%;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+}
+
+.error {
+  display: none;
+}
+.form-control.ng-invalid.ng-dirty ~ .error,
+.confirm-password.ng-dirty ~ .error.danger {
+  display: block;
+  color: red;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.login {
+  color: black;
+  font-weight: 600;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.login span {
+  color: #36c2a4;
+  cursor: pointer;
+}
+
+.forgot-password {
+  margin-top: 15px;
+}

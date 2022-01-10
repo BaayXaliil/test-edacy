@@ -1,0 +1,49 @@
+.container .title {
+  position: relative;
+  margin-bottom: 30px;
+}
+.container .title .close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  top: 0px;
+  font-size: 29px;
+}
+
+.close img {
+  width: 20px;
+}
+
+.body {
+  padding: 30px 35px;
+  background-color: var(--color-secondary);
+}
+.body .body-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.body .body-header .lang {
+  background: darkgray;
+  color: black;
+  padding: 5px 15px;
+  font-weight: 600;
+}
+
+.transaction {
+  display: flex;
+}
+.transaction .add {
+  padding: 5px 10px;
+  border: 2px solid #c2c2c2
+}
+.transaction .dropdown-toggle {
+  border: 2px solid #c2c2c2;
+  width: 35px;
+  border-left: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}

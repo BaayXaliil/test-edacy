@@ -1,0 +1,25 @@
+<header>
+  <h2>EDACY</h2>
+</header>
+<div class="container">
+  <div class="form">
+    <form [formGroup]="loginForm">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="text" name="email" id="email" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" class="form-control">
+        <div [ngClass]="{'danger': loginForm.hasError('minLength')}" class="error">
+          Le mot de passe doit avoir au moins 3 caractères
+        </div>
+        <div class="forgot-password">Forget my password</div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="!loginForm.valid" class="btn btn-success" (click)="signin()">Create account</button>
+      </div>
+    </form>
+    <div class="login">I don't have a account. <span routerLink="/auth/register">Sign Up here</span></div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<header>
+  <h2>EDACY</h2>
+</header>
+<div class="container">
+  <div class="container-header">
+    <h2 class="title">Welcome Temitope</h2>
+    <div class="subtitle">Let's help you setup your environment</div>
+  </div>
+  <div class="form">
+    <form [formGroup]="domainForm">
+      <div class="form-group">
+        <label for="domain">Set your domain</label>
+        <div class="input">
+          <input type="text" name="domain" id="domain" formControlName="domain" placeholder="name">
+          <div class="extension">.edacy.com</div>
+        </div>
+        <div [ngClass]="{'succes': this.errorMessage == false}" class="error">
+          Domain is available
+        </div>
+        <div [ngClass]="{'danger': this.errorMessage}" class="error">
+          Domain is not available
+        </div>
+        <div class="far fa-check-circle" *ngIf="errorMessage == false"></div>
+        <div class="far fa-times-circle" *ngIf="errorMessage"></div>
+      </div>
+      <div class="form-group">
+        <label for="">Default language</label>
+        <div class="input-group">
+          <label for="arabic" class="form-check">
+            Arabic
+            <input type="radio" name="lang" id="arabic" formControlName="lang" value="Ar">
+            <span class="checkmark"></span>
+          </label>
+          <label for="english" class="form-check">
+            English
+            <input type="radio" name="lang" id="english" formControlName="lang" value="En">
+            <span class="checkmark"></span>
+          </label>
+          <label for="french" class="form-check">
+            French
+            <input type="radio" name="lang" id="french" formControlName="lang" value="Fr">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="!domainForm.valid" class="btn btn-success" (click)="login()">Create account</button>
+      </div>
+    </form>
+  </div>
+</div>

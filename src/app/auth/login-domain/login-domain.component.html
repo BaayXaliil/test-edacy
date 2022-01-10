@@ -1,0 +1,38 @@
+<header>
+  <h2>EDACY</h2>
+</header>
+<div class="container">
+  <div class="container-header">
+    <h2 class="title">Welcome Back</h2>
+    <div class="subtitle">Log into your account</div>
+  </div>
+  <div class="form">
+    <form [formGroup]="domainForm">
+      <div class="form-group">
+        <label for="domain">Set your domain</label>
+        <div class="input">
+          <input type="text" name="domain" id="domain" formControlName="domain" placeholder="name">
+          <div class="extension">.edacy.com</div>
+        </div>
+        <div [ngClass]="{'danger': this.errorMessage}" class="error">
+          Domain is not available
+        </div>
+        <div class="far fa-times-circle" *ngIf="errorMessage"></div>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="!domainForm.valid" class="btn btn-success" (click)="login()">Go to account</button>
+      </div>
+    </form>
+  </div>
+  <div class="info">
+    <div class="remember">
+      <h6>Don't remember your company domain ?</h6>
+      <a routerLink="/auth/domain">Find your domain</a>
+    </div>
+    <div class="remember">
+      <h6>Don't have an accont?</h6>
+      <a routerLink="/auth">Create a new account</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<header>
+  <div class="header">
+    <img src="../../../assets/images/work.jpg" alt="">
+    <div class="button">
+      <div class="btn btn-outline-secondary">Exit Preview</div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="cards" *ngIf="!program">
+    <div class="card">
+      <img src="../../../assets/images/work.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">The Microsoft Way</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem soluta sed quod nihil fuga.
+        </p>
+        <div class="card-bottom">
+          <div class="weeks">8 weeks</div>
+          <div class="role">ENROLL</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="../../../assets/images/work.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">The Microsoft Way</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, delectus!
+        </p>
+        <div class="card-bottom">
+          <div class="weeks">8 weeks</div>
+          <div class="role">ENROLL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="empty-program" *ngIf="program">
+    <div class="empty-content">
+      <div class="logo">
+        <img src="../../assets/images/video.svg" alt="">
+      </div>
+      <div class="no-program">You don't have any program.</div>
+      <p>Please go to the admin and create your program.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<app-template></app-template>
+<div class="page-container">
+  <div class="container">
+    <h4>Customize your environment</h4>
+    <div class="body">
+      <div class="content">
+        <div class="content-header">
+          <div class="title">Domain</div>
+          <div class="button">
+            <button class="btn btn-outline-secondary">SAVE</button>
+          </div>
+        </div>
+        <div class="content-body">
+          <div class="form-group">
+            <div class="input">
+              <input type="text" name="domain" id="domain" placeholder="name">
+              <div class="extension">.edacy.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="content">
+        <div class="content-header">
+          <div class="title">Logo</div>
+          <div class="button">
+            <button class="btn btn-outline-secondary">SAVE</button>
+          </div>
+        </div>
+        <div class="content-body">
+          <div class="content-left">
+            <div class="title">Upload your favicon</div>
+            <div class="desc">
+              <div class="upload">
+                <input type="file" name="file" id="upload-favicon" ref="file" (change)="onFileChangeFav($event)">
+                <label for="upload-favicon" class="upload-favicon">
+                  <i class="fas fa-cloud-upload-alt" *ngIf="!favicon"></i>
+                  <img [src]="favicon" alt="" *ngIf="favicon">
+                </label>
+              </div>
+              <div class="upload-info">
+                <p>Format: jpg, png, ico</p>
+                <p>Dimension: 16px * 16px, 32px * 32px</p>
+                <p>Max size: 100 KB</p>
+              </div>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="title">Upload logo</div>
+            <div class="desc">
+              <div class="upload">
+                <input type="file" name="file" id="upload" ref="file" (change)="onFileChangeLogo($event)">
+                <label for="upload" class="upload-logo">
+                  <i class="fas fa-cloud-upload-alt" *ngIf="!logo"></i>
+                  <img [src]="logo" alt="" *ngIf="logo">
+                </label>
+              </div>
+              <div class="upload-info">
+                <p>Format: jpg, png</p>
+                <p>Dimension: 180px * 64px</p>
+                <p>Max size: 10 MB</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="content">
+        <div class="content-header">
+          <div class="title">Theme</div>
+          <div class="button">
+            <button class="btn btn-outline-secondary">SAVE</button>
+          </div>
+        </div>
+        <div class="content-body theme">
+          <div class="content-top">
+            <div class="content-left">
+              <div class="title">Primary Theme Color</div>
+              <div class="color-picker"></div>
+            </div>
+            <div class="content-right">
+              <div class="title">Secondary Theme Color</div>
+              <div class="color-picker"></div>
+            </div>
+          </div>
+          <div class="content-bottom">
+            <div class="title">Preview</div>
+            <div class="preview-content">
+              <div class="left">
+                <div class="left-header">
+                  <div class="profile"></div>
+                </div>
+                <div class="left-body">
+                  <div class="aside"></div>
+                  <div class="articles">
+                    <div class="article"></div>
+                    <div class="article"></div>
+                    <div class="article"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div class="right-header">
+                  <div class="profile"></div>
+                  <div class="info">
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <div class="right-body">
+                  <div class="article"></div>
+                  <div class="article"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

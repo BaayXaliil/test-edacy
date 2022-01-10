@@ -1,0 +1,94 @@
+header {
+  background: #fbf3d7;
+  margin: 0;
+  padding: 30px;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+.header img {
+  height: 50px;
+  margin-right: 150px;
+  border-radius: 5px;
+}
+
+.button .btn {
+  border-radius: 20px;
+  color: green;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.container {
+  padding: 60px;
+}
+
+.container .cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  width: 40%;
+  padding: 20px;
+  border-width: 2px;
+}
+
+.card-body p {
+  margin-bottom: 20px !important;
+  font-style: 14px;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-bottom .weeks {
+  font-weight: 500;
+}
+.card-bottom .role {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.empty-program .empty-content .logo {
+  background-color: gray;
+  width: 60px;
+  height: 60px;
+  padding: 20px;
+  border-radius: 50%;
+  color: white;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo img {
+  width: 40px;
+}
+.empty-program {
+  margin-top: 100px;
+}
+.empty-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.empty-content .no-program {
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+.empty-content p {
+  font-weight: 500;
+}

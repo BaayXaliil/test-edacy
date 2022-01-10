@@ -1,0 +1,86 @@
+.container {
+  padding-right: 30px;
+}
+
+.button {
+  text-align: right;
+}
+.button button {
+  color: green;
+  font-weight: 500;
+  border: 2px solid gainsboro;
+  text-transform: uppercase;
+}
+
+.body {
+  margin-top: 40px;
+  border: 2px solid gainsboro;
+  border-radius: 5px;
+  padding: 30px;
+}
+.body-content {
+  display: flex;
+}
+.body-content .image {
+  margin-right: 40px;
+}
+.image img {
+  width: 230px;
+}
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: right;
+}
+.buttons button {
+  color: green;
+  border-color: gainsboro;
+  border-width: 2px;
+}
+.buttons button:first-child {
+  margin-right: 30px;
+}
+
+.desc .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+.desc p {
+  margin: 0;
+  font-size: 14px;
+}
+.header .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title h3 {
+  margin: 0;
+}
+
+.btn-active {
+  display: flex;
+  padding: 10px 15px;
+  background: var(--color-primary-light);
+  border-radius: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+.btn-active .dropdown-menu {
+  border-color: var(--color-primary) !important;
+}
+
+.btn-active .dropdown-menu .dropdown-item.active{
+  background-color: inherit !important;
+  font-weight: 600;
+  color: black;
+}
+.btn-active span {
+  text-transform: uppercase;
+  display: inline-block;
+  /* margin-right: 10px; */
+  font-size: 14px;
+}

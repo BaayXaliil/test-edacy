@@ -1,0 +1,140 @@
+header {
+  margin-bottom: 15px;
+}
+header h2 {
+  background: #fbf3d7;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container h3 {
+  margin-top: 0;
+}
+
+.form {
+  color: darkgray;
+  width: 400px;
+}
+.form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.form-group input {
+  height: 40px;
+  font-size: 16px;
+  outline: none;
+  padding: 0 5px;
+  border: none;
+  border-radius: 2px;
+  background-color: #f1f1f1;
+}
+
+.form-check {
+  position: relative;
+  margin: 12px 0;
+  padding-left: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+.form-check input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  cursor: pointer;
+}
+.form-check .checkmark {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #36c2a4;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #36c2a4;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.form-check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.form-check .checkmark:after {
+  left: 5px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.btn {
+  cursor: pointer;
+}
+.btn:disabled {
+  cursor: not-allowed;
+}
+.btn-success {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #36c2a4;
+  color: black;
+  width: 80%;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+}
+
+.error {
+  display: none;
+}
+.form-control.ng-invalid.ng-dirty ~ .error,
+.confirm-password.ng-dirty ~ .error.danger {
+  display: block;
+  color: red;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.login {
+  color: black;
+  font-weight: 600;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.login span {
+  color: #36c2a4;
+  cursor: pointer;
+}

@@ -1,0 +1,8 @@
+mutation Login($credentials: CredentialsInput!) {
+  login(credentials: $credentials) {
+    id
+    createdAt
+    token
+    user {id  profile {fullName lastName email}}
+  }
+}

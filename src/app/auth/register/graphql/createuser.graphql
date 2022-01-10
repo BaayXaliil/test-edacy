@@ -1,0 +1,9 @@
+mutation RegisterUser($user: CreateUserInput!) {
+  registerUser(user: $user) {id token user {
+    id createdAt role profile {
+      fullName
+      lastName
+      email
+    } 
+  }}
+}

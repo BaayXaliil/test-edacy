@@ -1,0 +1,47 @@
+<header>
+  <h2>EDACY</h2>
+</header>
+<div class="container">
+  <h2 class="title">Get started with EDACY</h2>
+  <div class="form">
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <label for="firstname">First name</label>
+        <input type="text" name="firstname" id="firstname" formControlName="firstname">
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last name</label>
+        <input type="text" name="lastname" id="lastname" formControlName="lastname">
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="text" name="email" id="email" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password"  id="password" formControlName="password" class="form-control">
+        <div [ngClass]="{'danger': registerForm.hasError('minLength')}" class="error">
+          Le mot de passe doit avoir au moins 3 caractères
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password"  id="confirmPassword" class="confirm-password" formControlName="confirmPassword">
+        <div [ngClass]="{'danger': registerForm.hasError('notSamePasswords')}" class="error">
+          password isn't confirm
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="accept" class="form-check">
+          I agree to the Terms of Use Privacy Policy
+          <input type="checkbox" name="accept" id="accept" formControlName="accept">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="form-group">
+        <button [disabled]="!registerForm.valid" class="btn btn-success" (click)="signup()">Create account</button>
+      </div>
+    </form>
+    <div class="login">I already have account. <span routerLink="/auth/login">Login here</span></div>
+  </div>
+</div>
