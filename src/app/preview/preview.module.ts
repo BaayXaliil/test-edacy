@@ -5,11 +5,12 @@ import { OverviewComponent } from './overview/overview.component';
 import { CreateProgramComponent } from './create-program/create-program.component';
 import { TemplateModule } from '../shared/components/template/template.module';
 import { PreviewRoutingModule } from './preview-routing.module';
+import { NewProgramComponent } from './new-program/new-program.component';
 
 
 
 @NgModule({
-  declarations: [PublicComponent, OverviewComponent, CreateProgramComponent],
+  declarations: [PublicComponent, OverviewComponent, CreateProgramComponent, NewProgramComponent],
   imports: [
     CommonModule,
     TemplateModule,

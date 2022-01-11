@@ -1,0 +1,84 @@
+<app-template></app-template>
+<div class="page-container">
+  <div class="container">
+    <div class="title">
+      <h2>Create Progam</h2>
+      <div class="close">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+    <div class="body">
+      <div class="body-header">
+
+      </div>
+
+      <div class="program-title">
+        <div class="form-group">
+          <label for="program">Program Title</label>
+          <input type="text" name="program" id="proram" disabled>
+        </div>
+      </div>
+
+      <div class="program-description">
+        <div class="form-group">
+          <label for="description" class="program-description-title">Program Description</label>
+          <textarea disabled name="description" id="description" rows="3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quaerat sunt. Esse eos facilis at non voluptatem, cum cumque consequatur impedit voluptas vel iusto assumenda magnam sed laudantium in animi?
+          </textarea>
+        </div>
+      </div>
+
+      <div class="program-cover-image">
+        <div class="image-title">Cover image</div>
+        <div class="upload">
+          <input type="file" name="file" id="upload-favicon" ref="file" (change)="onFileChangeImage($event)">
+          <div class="upload-image-info">
+            <div  class="upload-favicon img">
+              <i class="fas fa-image" *ngIf="!image"></i>
+              <span *ngIf="!image">Image Thumbnail</span>
+              <img [src]="image" alt="" *ngIf="image">
+            </div>
+            <div class="info-image" *ngIf="image">
+              <div class="img-name">{{imageName}}</div>
+              <div class="img-desc">
+                <p>Size: {{imagesize}} KB</p>
+                <p>Format: {{imageFormat}}</p>
+              </div>
+            </div>
+          </div>
+
+          <label class="browser" for="upload-favicon">
+            <div  class="btn btn-outline-secondary">browse</div>
+          </label>
+        </div>
+      </div>
+      <div class="introduction-video">
+        <div class="video-title">Introduction Video</div>
+        <div class="upload">
+          <input type="file" name="file" id="upload-favicon" accept="video/mp4" ref="file"
+            (change)="onFileChangeVideo($event)">
+          <div class="upload-image-info">
+            <div class="upload-favicon">
+              <i class="fas fa-image"></i>
+              <span >Image Thumbnail</span>
+              <!-- <img [src]="video" alt="" *ngIf="video"> -->
+            </div>
+            <div class="info-image">
+              <div class="img-name">Poster for Digital Safety & Data...</div>
+              <div class="img-desc">
+                <p>Size: 1024x960</p>
+                <p>Format: mp4</p>
+                <p>Length: 80 seconds</p>
+              </div>
+            </div>
+          </div>
+          <label class="browser" for="upload-favicon">
+            <div class="btn btn-outline-secondary">browse</div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="button">
+      <button class="btn">+Add Curriculum</button>
+    </div>
+  </div>
+</div>
