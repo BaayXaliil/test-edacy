@@ -17,6 +17,9 @@
   background: var(--color-secondary-dark);
   color: white;
 }
+.nav-link.active.admin {
+  background-color: var(--color-primary);
+}
 .nav-link .icon {
   display: flex;
   align-items: center;

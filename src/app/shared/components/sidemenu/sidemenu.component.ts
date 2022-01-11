@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidemenuComponent implements OnInit {
 
+  admin;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(location.pathname)
+    if (location.pathname == "/preview/create-program")
+      this.admin = true;
   }
 
   navigate(e) {
