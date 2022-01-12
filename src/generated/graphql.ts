@@ -5190,6 +5190,33 @@ export type CreatePlatformMutation = (
   ) }
 );
 
+export type SubDomainExistsQueryVariables = {
+  subdomain: Scalars['String'];
+};
+
+
+export type SubDomainExistsQuery = (
+  { __typename?: 'Query' }
+  & Pick<Query, 'subDomainExists'>
+);
+
+export type FetchMyPlatformQueryVariables = {
+  subdomain: Scalars['String'];
+};
+
+
+export type FetchMyPlatformQuery = (
+  { __typename?: 'Query' }
+  & { fetchMyPlatform: (
+    { __typename?: 'Platform' }
+    & Pick<Platform, 'subdomain' | 'source' | 'defaultLanguage'>
+    & { theme?: Maybe<(
+      { __typename?: 'PlatformTheme' }
+      & Pick<PlatformTheme, 'primaryColor' | 'secondaryColor' | 'favicon' | 'logo'>
+    )> }
+  ) }
+);
+
 export type LoginMutationVariables = {
   credentials: CredentialsInput;
 };
@@ -5212,6 +5239,7 @@ export type LoginMutation = (
 );
 
 export type RegisterUserMutationVariables = {
+  opts?: Maybe<RegistrationOptsInput>;
   user: CreateUserInput;
 };
 
@@ -5220,16 +5248,26 @@ export type RegisterUserMutation = (
   { __typename?: 'Mutation' }
   & { registerUser: (
     { __typename?: 'Session' }
-    & Pick<Session, 'id' | 'token'>
+    & Pick<Session, 'id' | 'createdAt' | 'updatedAt' | 'token'>
     & { user: (
       { __typename?: 'User' }
-      & Pick<User, 'id' | 'createdAt' | 'role'>
+      & Pick<User, 'id' | 'role'>
       & { profile: (
         { __typename?: 'Profile' }
-        & Pick<Profile, 'fullName' | 'lastName' | 'email'>
+        & Pick<Profile, 'firstName' | 'lastName' | 'email'>
       ) }
     ) }
   ) }
+);
+
+export type UpdateMyPlatformSubDomainMutationVariables = {
+  updatePlatformSubDomainInput: UpdatePlatformSubDomainInput;
+};
+
+
+export type UpdateMyPlatformSubDomainMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'updateMyPlatformSubDomain'>
 );
 
 export const CreatePlatformDocument = gql`
@@ -5253,6 +5291,42 @@ export const CreatePlatformDocument = gql`
   })
   export class CreatePlatformGQL extends Apollo.Mutation<CreatePlatformMutation, CreatePlatformMutationVariables> {
     document = CreatePlatformDocument;
+    
+  }
+export const SubDomainExistsDocument = gql`
+    query SubDomainExists($subdomain: String!) {
+  subDomainExists(subdomain: $subdomain)
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class SubDomainExistsGQL extends Apollo.Query<SubDomainExistsQuery, SubDomainExistsQueryVariables> {
+    document = SubDomainExistsDocument;
+    
+  }
+export const FetchMyPlatformDocument = gql`
+    query FetchMyPlatform($subdomain: String!) {
+  fetchMyPlatform(subdomain: $subdomain) {
+    subdomain
+    source
+    defaultLanguage
+    theme {
+      primaryColor
+      secondaryColor
+      favicon
+      logo
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class FetchMyPlatformGQL extends Apollo.Query<FetchMyPlatformQuery, FetchMyPlatformQueryVariables> {
+    document = FetchMyPlatformDocument;
     
   }
 export const LoginDocument = gql`
@@ -5281,16 +5355,17 @@ export const LoginDocument = gql`
     
   }
 export const RegisterUserDocument = gql`
-    mutation RegisterUser($user: CreateUserInput!) {
-  registerUser(user: $user) {
+    mutation RegisterUser($opts: RegistrationOptsInput, $user: CreateUserInput!) {
+  registerUser(opts: $opts, user: $user) {
     id
+    createdAt
+    updatedAt
     token
     user {
       id
-      createdAt
       role
       profile {
-        fullName
+        firstName
         lastName
         email
       }
@@ -5304,5 +5379,20 @@ export const RegisterUserDocument = gql`
   })
   export class RegisterUserGQL extends Apollo.Mutation<RegisterUserMutation, RegisterUserMutationVariables> {
     document = RegisterUserDocument;
+    
+  }
+export const UpdateMyPlatformSubDomainDocument = gql`
+    mutation UpdateMyPlatformSubDomain($updatePlatformSubDomainInput: UpdatePlatformSubDomainInput!) {
+  updateMyPlatformSubDomain(
+    updatePlatformSubDomainInput: $updatePlatformSubDomainInput
+  )
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class UpdateMyPlatformSubDomainGQL extends Apollo.Mutation<UpdateMyPlatformSubDomainMutation, UpdateMyPlatformSubDomainMutationVariables> {
+    document = UpdateMyPlatformSubDomainDocument;
     
   }

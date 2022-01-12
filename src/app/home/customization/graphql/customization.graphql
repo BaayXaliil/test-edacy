@@ -1,0 +1,3 @@
+mutation UpdateMyPlatformSubDomain($updatePlatformSubDomainInput: UpdatePlatformSubDomainInput!) {
+  updateMyPlatformSubDomain(updatePlatformSubDomainInput: $updatePlatformSubDomainInput)
+}

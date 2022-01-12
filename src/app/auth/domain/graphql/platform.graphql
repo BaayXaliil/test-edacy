@@ -6,3 +6,7 @@ mutation CreatePlatform($platformInput: PlatformInput!) {
     theme {primaryColor secondaryColor logo favicon }
   }
 }
+
+query SubDomainExists($subdomain: String!){
+  subDomainExists(subdomain: $subdomain)
+}

@@ -25,11 +25,19 @@
   margin-bottom: 30px;
 }
 
+.body-header .languages {
+  display: flex;
+}
+
 .body .body-header .lang {
   background: darkgray;
   color: black;
   padding: 5px 15px;
   font-weight: 600;
+  margin-right: 30px;
+}
+.body .body-header .lang:nth-child(2) {
+  background-color: transparent;
 }
 
 .transaction {

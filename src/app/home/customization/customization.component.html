@@ -7,13 +7,13 @@
         <div class="content-header">
           <div class="title">Domain</div>
           <div class="button">
-            <button class="btn btn-outline-secondary">SAVE</button>
+            <button class="btn btn-outline-secondary" (click)="updateSubdomain()">SAVE</button>
           </div>
         </div>
         <div class="content-body">
           <div class="form-group">
             <div class="input">
-              <input type="text" name="domain" id="domain" placeholder="name">
+              <input type="text" name="domain" id="domain" placeholder="name" (change)="onChangeDomain($event)">
               <div class="extension">.edacy.com</div>
             </div>
           </div>
@@ -25,7 +25,7 @@
         <div class="content-header">
           <div class="title">Logo</div>
           <div class="button">
-            <button class="btn btn-outline-secondary">SAVE</button>
+            <button class="btn btn-outline-secondary" [disabled]="files.length == 0" (click)="saveFiles()">SAVE</button>
           </div>
         </div>
         <div class="content-body">

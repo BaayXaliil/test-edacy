@@ -9,8 +9,16 @@
     </div>
     <div class="body">
       <div class="body-header">
-        <div class="lang">
-          English
+        <div class="languages">
+          <div class="lang" *ngIf="en">
+            English
+          </div>
+          <div class="lang" *ngIf="fr">
+            French
+          </div>
+          <div class="lang" *ngIf="ar">
+            Arabic
+          </div>
         </div>
         <div class="transaction">
           <div class="add">Add Transaction</div>
@@ -21,21 +29,21 @@
             <div class="form-group">
               <label for="english" class="form-check">
                 English
-                <input type="checkbox" name="english" id="english" checked>
+                <input type="checkbox" name="english" (change)="changeLang($event)" id="english" [checked]="en">
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="form-group">
               <label for="french" class="form-check">
                 French
-                <input type="checkbox" name="french" id="french" checked>
+                <input type="checkbox" name="french" (change)="changeLang($event)" id="french" [checked]="fr">
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="form-group">
               <label for="arabic" class="form-check">
                 Arabic
-                <input type="checkbox" name="arabic" id="arabic" >
+                <input type="checkbox" name="arabic" (change)="changeLang($event)" id="arabic" [checked]="ar">
                 <span class="checkmark"></span>
               </label>
             </div>

@@ -1,0 +1,8 @@
+query FetchMyPlatform($subdomain: String!){
+	fetchMyPlatform(subdomain: $subdomain) {
+    subdomain
+    source
+    defaultLanguage
+    theme {primaryColor secondaryColor favicon logo }
+  }
+}

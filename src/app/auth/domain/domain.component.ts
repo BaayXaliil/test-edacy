@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { CreatePlatformGQL } from 'src/generated/graphql';
+import { Router } from '@angular/router';
+import { CreatePlatformGQL, SubDomainExistsGQL } from 'src/generated/graphql';
 
 @Component({
   selector: 'app-domain',
@@ -12,7 +13,12 @@ export class DomainComponent implements OnInit {
   domainForm: FormGroup;
   errorMessage: boolean;
 
-  constructor(private formBuilder: FormBuilder, private createPlatformGQL: CreatePlatformGQL) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private createPlatformGQL: CreatePlatformGQL,
+    private subDomainExists: SubDomainExistsGQL,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.domainForm = this.formBuilder.group({
@@ -22,15 +28,24 @@ export class DomainComponent implements OnInit {
   }
 
   login() {
-    let platform = { "subdomain": this.domainForm.get('domain').value,  "defaultLanguage": this.domainForm.get('lang').value }
-    console.log(platform)
-    this.createPlatformGQL.mutate({ "platformInput": platform }).subscribe((result) => {
+    this.subDomainExists.fetch({ "subdomain": this.domainForm.get('domain').value }).subscribe(result => {
       if (result.errors) {
-        this.errorMessage = true
-        console.log(result.errors[0].message);
+        console.log(result.errors)
       } else {
-        this.errorMessage = false
-        console.log(result.data);
+        this.errorMessage = result.data.subDomainExists
+        if (!this.errorMessage) {
+          let platform = { "subdomain": this.domainForm.get('domain').value,  "defaultLanguage": this.domainForm.get('lang').value }
+          console.log(platform)
+          this.createPlatformGQL.mutate({ "platformInput": platform }).subscribe((result) => {
+            if (result.errors) {
+              console.log(result.errors);
+            } else {
+              console.log(result.data);
+              localStorage.setItem('platform', JSON.stringify(result.data.createPlatform))
+              this.router.navigate(['/home'])
+            }
+          })
+        }
       }
     })
     

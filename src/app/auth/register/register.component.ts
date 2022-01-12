@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl('', Validators.required),
       accept: new FormControl('', Validators.required)
     },
@@ -49,9 +49,11 @@ export class RegisterComponent implements OnInit {
           lastName: this.registerForm.get('lastname').value,
           email: this.registerForm.get("email").value,
           password: this.registerForm.get("password").value
-    }}
+      }
+    }
+    let owner = { isPlateformOwner: true }
     console.log(createUserInput);
-    this.registerUserGQL.mutate({ "user": createUserInput }).subscribe(result => {
+    this.registerUserGQL.mutate({"opts": owner, "user": createUserInput }).subscribe(result => {
       if (result.errors) {
         console.log(result.errors);
       }

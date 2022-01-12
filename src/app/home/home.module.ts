@@ -6,6 +6,7 @@ import { HomeRoutingModule } from './home-routine.module';
 import { OverviewComponent } from './overview/overview.component';
 import { ManageComponent } from './manage/manage.component';
 import { CustomizationComponent } from './customization/customization.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,7 +15,8 @@ import { CustomizationComponent } from './customization/customization.component'
   imports: [
     CommonModule,
     TemplateModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    HttpClientModule
   ]
 })
 export class HomeModule { }

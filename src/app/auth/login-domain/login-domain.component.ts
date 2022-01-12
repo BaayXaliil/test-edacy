@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FetchMyPlatformGQL } from 'src/generated/graphql';
 
 @Component({
   selector: 'app-login-domain',
@@ -10,7 +12,11 @@ export class LoginDomainComponent implements OnInit {
 
   domainForm: FormGroup;
   errorMessage: boolean;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private fetchMyPlatformGQL: FetchMyPlatformGQL,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.domainForm = this.formBuilder.group({
@@ -20,6 +26,15 @@ export class LoginDomainComponent implements OnInit {
 
   login() {
     console.log(this.domainForm.value);
+    this.fetchMyPlatformGQL.fetch({ "subdomain": this.domainForm.get('domain').value }).subscribe(result => {
+      if (result.errors) {
+        console.log(result.errors)
+      } else {
+        console.log(result.data.fetchMyPlatform)
+        localStorage.setItem('platform', JSON.stringify(result.data.fetchMyPlatform))
+        this.router.navigate(['/home/customization'])
+      }
+    })
     
   }
 

@@ -1,9 +1,17 @@
-mutation RegisterUser($user: CreateUserInput!) {
-  registerUser(user: $user) {id token user {
-    id createdAt role profile {
-      fullName
-      lastName
-      email
-    } 
-  }}
+mutation RegisterUser($opts: RegistrationOptsInput, $user: CreateUserInput!) {
+  registerUser(opts: $opts, user: $user) {
+    id
+    createdAt
+    updatedAt
+    token
+    user {
+      id 
+      role 
+      profile {
+        firstName
+        lastName
+        email
+      }
+    }
+  }
 }

@@ -11,11 +11,22 @@ export class CreateProgramComponent implements OnInit {
   logo;
   videos;
   images;
+  fr: boolean = true;
+  en: boolean = true;
+  ar: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  changeLang(e) {
+    if(e.target.name == "arabic")
+      this.ar = e.target.checked
+    if (e.target.name == "english")
+      this.en = e.target.checked
+    if (e.target.name == "french")
+      this.fr = e.target.checked
+  }
   onFileChangeImage(e) {
     if (e.target.files.length !== 0)
       this.images = e.target.files
