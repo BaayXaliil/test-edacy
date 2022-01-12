@@ -4,7 +4,7 @@
     <div class="button">
       <button class="btn btn-outline-secondary" routerLink="/auth/login-domain">Create a program</button>
     </div>
-    <div class="body">
+    <div class="body" *ngIf="program">
       <div class="body-content">
         <div class="image">
           <img src="../../../assets/images/work.jpg" alt="">
@@ -29,6 +29,34 @@
       <div class="buttons">
         <button class="btn btn-outline-secondary" routerLink="/auth/login-domain">Manage content</button>
         <button class="btn btn-outline-secondary" routerLink="/auth/login-domain">Manage program</button>
+      </div>
+    </div>
+    <div *ngIf="!program">
+      <div class="customize">
+        <div class="environment">
+          <div class="content" routerLink="/auth/login-domain">
+            <div class="logo">
+              <img src="../../assets/images/web-design-brush.svg" alt="">
+            </div>
+            <div class="desc">Customize your environment</div>
+          </div>
+        </div>
+        <div class="program">
+          <div class="content" routerLink="/auth/login-domain">
+            <div class="logo">
+              <img src="../../assets/images/video.svg" alt="">
+            </div>
+            <div class="desc">Create a program</div>
+          </div>
+        </div>
+      </div>
+      <div class="my-programs">
+        <div class="nothing">
+          <div class="img">
+            <img src="../../../assets/images/folder-error.svg" alt="">
+          </div>
+          <div class="desc">You have not created any program yet</div>
+        </div>
       </div>
     </div>
   </div>

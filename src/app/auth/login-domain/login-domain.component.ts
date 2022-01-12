@@ -32,7 +32,11 @@ export class LoginDomainComponent implements OnInit {
       } else {
         console.log(result.data.fetchMyPlatform)
         localStorage.setItem('platform', JSON.stringify(result.data.fetchMyPlatform))
-        this.router.navigate(['/home/customization'])
+        if (localStorage.getItem('prevPage')) {
+          let page = localStorage.getItem('prevPage')
+          this.router.navigate([page])
+        } else
+          this.router.navigate(['/home'])
       }
     })
     

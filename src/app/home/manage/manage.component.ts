@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageComponent implements OnInit {
 
+  program;
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('program')) {
+      this.program = JSON.parse(localStorage.getItem('program'))
+    }
   }
 
 }

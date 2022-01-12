@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UpdateMyPlatformSubDomainGQL } from 'src/generated/graphql';
 import { HomeService } from '../service/home.service';
 
@@ -15,12 +16,18 @@ export class CustomizationComponent implements OnInit {
   files = [];
   constructor(
     private upadateMyPlatformSubdomainGQL: UpdateMyPlatformSubDomainGQL,
-    private homeService: HomeService
+    private homeService: HomeService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('platform'))
+    if (localStorage.getItem('platform')) {
       this.platform = JSON.parse(localStorage.getItem('platform'))
+    } else {
+      localStorage.setItem('prevPage', "/home/customization")
+      this.router.navigate(['/auth/login-domain'])
+    }
   }
   onChangeDomain(e) {
     console.log(e.target.value)
