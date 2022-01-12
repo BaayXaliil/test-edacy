@@ -31,6 +31,18 @@ h4 {
   width: 50%;
 }
 
+.theme .content-top {
+  display: flex;
+  margin-bottom: 20px;
+}
+.theme .content-top .content-left,
+.content-top .content-right {
+  width: 50%;
+}
+.content-top .color-picker {
+  width: 60%;
+}
+
 .desc {
   display: flex;
 }
@@ -120,9 +132,9 @@ label {
   flex-direction: column;
 }
 
-.content-bottom .title {
-  font-size: 16px;
-  font-weight: 600;
+.content-bottom .title, .content-top .title {
+  font-size: 14px;
+  font-weight: 500;
   margin-bottom: 15px;
 }
 .preview-content {
@@ -189,7 +201,6 @@ label {
   height: 70px;
   border-radius: 50%;
   background-color: gray;
-
 }
 .right .right-header .info {
   flex: 1;

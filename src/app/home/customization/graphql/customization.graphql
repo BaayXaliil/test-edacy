@@ -1,3 +1,7 @@
 mutation UpdateMyPlatformSubDomain($updatePlatformSubDomainInput: UpdatePlatformSubDomainInput!) {
   updateMyPlatformSubDomain(updatePlatformSubDomainInput: $updatePlatformSubDomainInput)
 }
+
+mutation UpdateMyPlatformColors($subdomain: String!, $platformThemeInput: PlatformThemeInput!) {
+  updateMyPlatformColors(subdomain: $subdomain, platformThemeInput: $platformThemeInput) 
+}

@@ -7,6 +7,8 @@ import { OverviewComponent } from './overview/overview.component';
 import { ManageComponent } from './manage/manage.component';
 import { CustomizationComponent } from './customization/customization.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ColorSketchModule } from 'ngx-color/sketch';
+import { ColorChromeModule } from 'ngx-color/chrome'; // <color-chrome></color-chrome>
 
 
 
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     TemplateModule,
     HomeRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ColorSketchModule,
+    ColorChromeModule
   ]
 })
 export class HomeModule { }

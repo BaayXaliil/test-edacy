@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UpdateMyPlatformSubDomainGQL } from 'src/generated/graphql';
+import { ColorEvent } from 'ngx-color';
+import { UpdateMyPlatformColorsGQL, UpdateMyPlatformSubDomainGQL } from 'src/generated/graphql';
 import { HomeService } from '../service/home.service';
 
 @Component({
@@ -14,11 +15,13 @@ export class CustomizationComponent implements OnInit {
   platform;
   newdomain;
   files = [];
+  primaryColor;
+  secondaryColor;
   constructor(
     private upadateMyPlatformSubdomainGQL: UpdateMyPlatformSubDomainGQL,
     private homeService: HomeService,
     private router: Router,
-    private route: ActivatedRoute
+    private updatePlatformColorGQL: UpdateMyPlatformColorsGQL
   ) { }
 
   ngOnInit(): void {
@@ -29,8 +32,15 @@ export class CustomizationComponent implements OnInit {
       this.router.navigate(['/auth/login-domain'])
     }
   }
+
+  handleChangeColorPrimary($event: ColorEvent) {
+    console.log($event.color);
+    this.primaryColor = $event.color.hex;
+  }
+  handleChangeColorSecondary($event: ColorEvent) {
+    this.secondaryColor = $event.color.hex;
+  }
   onChangeDomain(e) {
-    console.log(e.target.value)
     this.newdomain = e.target.value;
   }
   updateSubdomain() {
@@ -44,6 +54,17 @@ export class CustomizationComponent implements OnInit {
         console.log(result.data.updateMyPlatformSubDomain)
       }
     })
+  }
+
+  updateTheme() {
+    let platformThemeInput = { primaryColor: this.primaryColor, secondaryColor: this.secondaryColor }
+    this.updatePlatformColorGQL.mutate({ "subdomain": this.platform.subdomain, "platformThemeInput": platformThemeInput })
+      .subscribe((result) => {
+        console.log(result.data.updateMyPlatformColors);
+        this.platform.theme.primaryColor = this.primaryColor
+        this.platform.theme.secondaryColor = this.secondaryColor
+        localStorage.setItem('platform', JSON.stringify(this.platform))
+    }, (error) => console.log(error))
   }
 
 

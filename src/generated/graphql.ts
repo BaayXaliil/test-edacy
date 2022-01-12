@@ -5270,6 +5270,17 @@ export type UpdateMyPlatformSubDomainMutation = (
   & Pick<Mutation, 'updateMyPlatformSubDomain'>
 );
 
+export type UpdateMyPlatformColorsMutationVariables = {
+  subdomain: Scalars['String'];
+  platformThemeInput: PlatformThemeInput;
+};
+
+
+export type UpdateMyPlatformColorsMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'updateMyPlatformColors'>
+);
+
 export type CreateProgramMutationVariables = {
   program: ProgramInput;
 };
@@ -5435,6 +5446,22 @@ export const UpdateMyPlatformSubDomainDocument = gql`
   })
   export class UpdateMyPlatformSubDomainGQL extends Apollo.Mutation<UpdateMyPlatformSubDomainMutation, UpdateMyPlatformSubDomainMutationVariables> {
     document = UpdateMyPlatformSubDomainDocument;
+    
+  }
+export const UpdateMyPlatformColorsDocument = gql`
+    mutation UpdateMyPlatformColors($subdomain: String!, $platformThemeInput: PlatformThemeInput!) {
+  updateMyPlatformColors(
+    subdomain: $subdomain
+    platformThemeInput: $platformThemeInput
+  )
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class UpdateMyPlatformColorsGQL extends Apollo.Mutation<UpdateMyPlatformColorsMutation, UpdateMyPlatformColorsMutationVariables> {
+    document = UpdateMyPlatformColorsDocument;
     
   }
 export const CreateProgramDocument = gql`
