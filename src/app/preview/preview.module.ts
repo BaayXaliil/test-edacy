@@ -6,6 +6,7 @@ import { CreateProgramComponent } from './create-program/create-program.componen
 import { TemplateModule } from '../shared/components/template/template.module';
 import { PreviewRoutingModule } from './preview-routing.module';
 import { NewProgramComponent } from './new-program/new-program.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,7 +15,8 @@ import { NewProgramComponent } from './new-program/new-program.component';
   imports: [
     CommonModule,
     TemplateModule,
-    PreviewRoutingModule
+    PreviewRoutingModule,
+    HttpClientModule
   ]
 })
 export class PreviewModule { }

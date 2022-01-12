@@ -1,0 +1,17 @@
+mutation CreateProgram($program: ProgramInput!) {
+  createProgram(program: $program) {
+    id
+    createdAt
+    updatedAt
+    source
+    startsAt
+    type
+    title
+    description
+    shortDescription
+    weeks {id createdAt updatedAt title description order }
+    poster {sm md lg}
+    videoUrl
+    introVideoThumb {sm lg md}
+  }
+}

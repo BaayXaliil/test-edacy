@@ -26,7 +26,7 @@
       <div class="program-cover-image">
         <div class="image-title">Cover image</div>
         <div class="upload">
-          <input type="file" name="file" id="upload-favicon" ref="file" (change)="onFileChangeImage($event)">
+          <input type="file" name="poster" id="upload-favicon" ref="file" (change)="onFileChangeImage($event)">
           <div class="upload-image-info">
             <div  class="upload-favicon img">
               <i class="fas fa-image" *ngIf="!image"></i>
@@ -50,7 +50,7 @@
       <div class="introduction-video">
         <div class="video-title">Introduction Video</div>
         <div class="upload">
-          <input type="file" name="file" id="upload-favicon" accept="video/mp4" ref="file"
+          <input type="file" name="introvideo" id="upload-video" accept="video/mp4" ref="file"
             (change)="onFileChangeVideo($event)">
           <div class="upload-image-info">
             <div class="upload-favicon">
@@ -67,7 +67,7 @@
               </div>
             </div>
           </div>
-          <label class="browser" for="upload-favicon">
+          <label class="browser" for="upload-video">
             <div class="btn btn-outline-secondary">browse</div>
           </label>
         </div>

@@ -33,7 +33,7 @@
             <div class="title">Upload your favicon</div>
             <div class="desc">
               <div class="upload">
-                <input type="file" name="file" id="upload-favicon" ref="file" (change)="onFileChangeFav($event)">
+                <input type="file" name="file" id="upload-favicon" accept="image/*" ref="file" (change)="onFileChangeFav($event)">
                 <label for="upload-favicon" class="upload-favicon">
                   <i class="fas fa-cloud-upload-alt" *ngIf="!favicon"></i>
                   <img [src]="favicon" alt="" *ngIf="favicon">

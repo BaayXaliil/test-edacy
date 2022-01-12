@@ -10,52 +10,46 @@
     <div class="body">
       <div class="body-header">
         <div class="languages">
-          <div class="lang" *ngIf="en">
-            English
-          </div>
-          <div class="lang" *ngIf="fr">
-            French
-          </div>
-          <div class="lang" *ngIf="ar">
-            Arabic
+          <div class="lang">
+            {{defaultLanguage}}
           </div>
         </div>
         <div class="transaction">
           <div class="add">Add Transaction</div>
-        <div class="btn-group">
-          <div type="button" class="dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="false" data-bs-display="static"
-            aria-expanded="false"></div>
-          <form class="dropdown-menu dropdown-menu-lg-end">
-            <div class="form-group">
-              <label for="english" class="form-check">
-                English
-                <input type="checkbox" name="english" (change)="changeLang($event)" id="english" [checked]="en">
-                <span class="checkmark"></span>
-              </label>
-            </div>
-            <div class="form-group">
-              <label for="french" class="form-check">
-                French
-                <input type="checkbox" name="french" (change)="changeLang($event)" id="french" [checked]="fr">
-                <span class="checkmark"></span>
-              </label>
-            </div>
-            <div class="form-group">
-              <label for="arabic" class="form-check">
-                Arabic
-                <input type="checkbox" name="arabic" (change)="changeLang($event)" id="arabic" [checked]="ar">
-                <span class="checkmark"></span>
-              </label>
-            </div>
-          </form>
-        </div>
+          <div class="btn-group">
+            <div type="button" class="dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="false"
+              data-bs-display="static" aria-expanded="false"></div>
+            <form class="dropdown-menu dropdown-menu-lg-end">
+              <div class="form-group">
+                <label for="english" class="form-check">
+                  English
+                  <input type="radio" name="lang" (change)="changeLang($event)" id="english" value="en" checked>
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="french" class="form-check">
+                  French
+                  <input type="radio" name="lang" (change)="changeLang($event)" id="french" value="fr">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="arabic" class="form-check">
+                  Arabic
+                  <input type="radio" name="lang" (change)="changeLang($event)" id="arabic" value="ar">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
       <div class="program-title">
         <div class="form-group">
           <label for="program">Program Title</label>
-          <input type="text" name="program" id="proram">
+          <input type="text" name="program" id="proram" (change)="changeTitle($event)">
         </div>
       </div>
 
@@ -66,21 +60,21 @@
             <div class="form-group">
               <label for="beginner" class="form-check">
                 Beginner
-                <input type="checkbox" name="beginner" id="beginner" checked>
+                <input type="radio" name="level" id="beginner" checked value="Beginner" (change)="changeLevel($event)">
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="form-group">
               <label for="intermediate" class="form-check">
                 Intermediate
-                <input type="checkbox" name="intermediate" id="intermediate" checked>
+                <input type="radio" name="level" id="intermediate" value="Intermediate" (change)="changeLevel($event)">
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="form-group">
               <label for="advance" class="form-check">
                 Advance
-                <input type="checkbox" name="advance" id="advance">
+                <input type="radio" name="level" id="advance" value="Advance" (change)="changeLevel($event)">
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -92,14 +86,15 @@
             <div class="form-group">
               <label for="fondation" class="form-check">
                 Fondation
-                <input type="checkbox" name="fondation" id="fondation" checked>
+                <input type="radio" name="type" id="fondation" value="Fondation" (change)="changeType($event)" checked>
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="form-group">
               <label for="specialization" class="form-check">
                 Specialization
-                <input type="checkbox" name="specialization" id="specialization">
+                <input type="radio" name="type" id="specialization" value="Specialization"
+                  (change)="changeType($event)">
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -110,15 +105,17 @@
       <div class="program-description">
         <div class="form-group">
           <label for="description" class="program-description-title">Program Description</label>
-          <textarea  name="description" id="description" rows="3"></textarea>
+          <textarea name="description" id="description" rows="3" (change)="changeDesc($event)"></textarea>
         </div>
       </div>
 
       <div class="program-cover-image">
         <div class="image-title">Program Cover image</div>
         <div class="upload">
-          <input type="file" name="file" id="upload-favicon" ref="file" (change)="onFileChangeImage($event)">
-          <label for="upload-favicon" class="upload-favicon" (drop)="onDropImg($event)" (dragleave)="dragleave($event)" (dragover)="dragover($event)">
+          <input type="file" name="poster" id="upload-favicon" accept="image/*" ref="file"
+            (change)="onFileChangeImage($event)">
+          <label for="upload-favicon" class="upload-favicon" (drop)="onDropImg($event)" (dragleave)="dragleave($event)"
+            (dragover)="dragover($event)">
             <i class="fas fa-cloud-upload-alt"></i>
             <span>Drag and drop your image here or just click to select</span>
           </label>
@@ -126,10 +123,11 @@
       </div>
       <div class="introduction-video">
         <div class="video-title">Introduction Video</div>
-        <div class="upload" 
-        >
-          <input type="file" name="file" id="upload-favicon" accept="video/mp4" ref="file" (change)="onFileChangeVideo($event)">
-          <label for="upload-favicon" class="upload-favicon" (drop)="onDrop($event)" (dragleave)="dragleave($event)" (dragover)="dragover($event)">
+        <div class="upload">
+          <input type="file" name="introvideo" id="upload-video" accept="video/mp4" ref="file"
+            (change)="onFileChangeVideo($event)">
+          <label for="upload-video" class="upload-favicon" (drop)="onDrop($event)" (dragleave)="dragleave($event)"
+            (dragover)="dragover($event)">
             <i class="fas fa-cloud-upload-alt"></i>
             <span>Drag and drop your video here or just click to select</span>
           </label>
@@ -137,7 +135,7 @@
         <div class="format">FORMAT: mp4</div>
       </div>
       <div class="button">
-        <button class="btn">+Add Curriculum</button>
+        <button class="btn" (click)="addProgram()">+Add Curriculum</button>
       </div>
     </div>
   </div>

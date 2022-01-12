@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'preview',
-    loadChildren: () => import('./preview/preview.module').then(m => m.PreviewModule)
+    loadChildren: () => import('./preview/preview.module').then(m => m.PreviewModule),
+    canActivate: [AuthGuard]
   }
 ];
 

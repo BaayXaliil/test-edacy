@@ -57,7 +57,7 @@ export class CustomizationComponent implements OnInit {
       formData.append(name, file);
     }
     if (i == this.files.length) {
-      this.homeService.saveFiles("dioptrie", formData).subscribe(data => {
+      this.homeService.saveFiles(this.platform.subdomain, formData).subscribe(data => {
         console.log(data);
         
       })
@@ -75,7 +75,6 @@ export class CustomizationComponent implements OnInit {
     this.createImage(e.target.files[0], "logo");
   }
   createImage(file, img) {
-    var image = new Image();
     var reader = new FileReader();
 
     reader.onload = (e) => {

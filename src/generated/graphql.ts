@@ -5270,6 +5270,29 @@ export type UpdateMyPlatformSubDomainMutation = (
   & Pick<Mutation, 'updateMyPlatformSubDomain'>
 );
 
+export type CreateProgramMutationVariables = {
+  program: ProgramInput;
+};
+
+
+export type CreateProgramMutation = (
+  { __typename?: 'Mutation' }
+  & { createProgram: (
+    { __typename?: 'Program' }
+    & Pick<Program, 'id' | 'createdAt' | 'updatedAt' | 'source' | 'startsAt' | 'type' | 'title' | 'description' | 'shortDescription' | 'videoUrl'>
+    & { weeks?: Maybe<Array<(
+      { __typename?: 'ProgramWeek' }
+      & Pick<ProgramWeek, 'id' | 'createdAt' | 'updatedAt' | 'title' | 'description' | 'order'>
+    )>>, poster?: Maybe<(
+      { __typename?: 'ImageSizes' }
+      & Pick<ImageSizes, 'sm' | 'md' | 'lg'>
+    )>, introVideoThumb?: Maybe<(
+      { __typename?: 'ImageSizes' }
+      & Pick<ImageSizes, 'sm' | 'lg' | 'md'>
+    )> }
+  ) }
+);
+
 export type FetchProgramsBySourceQueryVariables = {
   clientFilter?: Maybe<ClientFilterInput>;
   source: Scalars['String'];
@@ -5412,6 +5435,48 @@ export const UpdateMyPlatformSubDomainDocument = gql`
   })
   export class UpdateMyPlatformSubDomainGQL extends Apollo.Mutation<UpdateMyPlatformSubDomainMutation, UpdateMyPlatformSubDomainMutationVariables> {
     document = UpdateMyPlatformSubDomainDocument;
+    
+  }
+export const CreateProgramDocument = gql`
+    mutation CreateProgram($program: ProgramInput!) {
+  createProgram(program: $program) {
+    id
+    createdAt
+    updatedAt
+    source
+    startsAt
+    type
+    title
+    description
+    shortDescription
+    weeks {
+      id
+      createdAt
+      updatedAt
+      title
+      description
+      order
+    }
+    poster {
+      sm
+      md
+      lg
+    }
+    videoUrl
+    introVideoThumb {
+      sm
+      lg
+      md
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class CreateProgramGQL extends Apollo.Mutation<CreateProgramMutation, CreateProgramMutationVariables> {
+    document = CreateProgramDocument;
     
   }
 export const FetchProgramsBySourceDocument = gql`
