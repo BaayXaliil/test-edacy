@@ -1,0 +1,5 @@
+query FetchProgramsBySource($clientFilter: ClientFilterInput, $source: String!) {
+  fetchProgramsBySource(clientFilter: $clientFilter, source: $source) {
+    id source type level title description weeks {createdAt}
+  }
+}

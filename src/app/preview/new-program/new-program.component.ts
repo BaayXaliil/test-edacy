@@ -12,6 +12,9 @@ export class NewProgramComponent implements OnInit {
   imagesize;
   imageFormat;
   video;
+  videoName;
+  videoSize
+  videoFormat;
   videos;
   images;
   constructor() { }

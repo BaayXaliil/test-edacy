@@ -55,14 +55,14 @@
           <div class="upload-image-info">
             <div class="upload-favicon">
               <i class="fas fa-image"></i>
-              <span >Image Thumbnail</span>
+              <span >Video Thumbnail</span>
               <!-- <img [src]="video" alt="" *ngIf="video"> -->
             </div>
-            <div class="info-image">
-              <div class="img-name">Poster for Digital Safety & Data...</div>
+            <div class="info-image" *ngIf="video">
+              <div class="img-name">{{videoName}}</div>
               <div class="img-desc">
-                <p>Size: 1024x960</p>
-                <p>Format: mp4</p>
+                <p>Size: {{videoSize}}</p>
+                <p>Format: {{fideoFormat}}</p>
                 <p>Length: 80 seconds</p>
               </div>
             </div>

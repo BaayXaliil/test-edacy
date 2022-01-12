@@ -5270,6 +5270,24 @@ export type UpdateMyPlatformSubDomainMutation = (
   & Pick<Mutation, 'updateMyPlatformSubDomain'>
 );
 
+export type FetchProgramsBySourceQueryVariables = {
+  clientFilter?: Maybe<ClientFilterInput>;
+  source: Scalars['String'];
+};
+
+
+export type FetchProgramsBySourceQuery = (
+  { __typename?: 'Query' }
+  & { fetchProgramsBySource: Array<(
+    { __typename?: 'Program' }
+    & Pick<Program, 'id' | 'source' | 'type' | 'level' | 'title' | 'description'>
+    & { weeks?: Maybe<Array<(
+      { __typename?: 'ProgramWeek' }
+      & Pick<ProgramWeek, 'createdAt'>
+    )>> }
+  )> }
+);
+
 export const CreatePlatformDocument = gql`
     mutation CreatePlatform($platformInput: PlatformInput!) {
   createPlatform(platformInput: $platformInput) {
@@ -5394,5 +5412,28 @@ export const UpdateMyPlatformSubDomainDocument = gql`
   })
   export class UpdateMyPlatformSubDomainGQL extends Apollo.Mutation<UpdateMyPlatformSubDomainMutation, UpdateMyPlatformSubDomainMutationVariables> {
     document = UpdateMyPlatformSubDomainDocument;
+    
+  }
+export const FetchProgramsBySourceDocument = gql`
+    query FetchProgramsBySource($clientFilter: ClientFilterInput, $source: String!) {
+  fetchProgramsBySource(clientFilter: $clientFilter, source: $source) {
+    id
+    source
+    type
+    level
+    title
+    description
+    weeks {
+      createdAt
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class FetchProgramsBySourceGQL extends Apollo.Query<FetchProgramsBySourceQuery, FetchProgramsBySourceQueryVariables> {
+    document = FetchProgramsBySourceDocument;
     
   }
