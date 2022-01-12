@@ -7,35 +7,20 @@
   </div>
 </header>
 <div class="container">
-  <div class="cards" *ngIf="!program">
-    <div class="card">
+  <div class="cards" *ngIf="programs.length > 0">
+    <div class="card" *ngFor="let program of programs">
       <img src="../../../assets/images/work.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">The Microsoft Way</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem soluta sed quod nihil fuga.
-        </p>
+        <h5 class="card-title">{{program.title}}</h5>
+        <p class="card-text">{{program.description}}</p>
         <div class="card-bottom">
-          <div class="weeks">8 weeks</div>
-          <div class="role">ENROLL</div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../../../assets/images/work.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">The Microsoft Way</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, delectus!
-        </p>
-        <div class="card-bottom">
-          <div class="weeks">8 weeks</div>
+          <div class="weeks">{{program.weeks.length}} weeks</div>
           <div class="role">ENROLL</div>
         </div>
       </div>
     </div>
   </div>
-  <div class="empty-program" *ngIf="program">
+  <div class="empty-program" *ngIf="programs.length == 0">
     <div class="empty-content">
       <div class="logo">
         <img src="../../assets/images/video.svg" alt="">

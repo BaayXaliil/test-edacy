@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CreateProgramGQL } from 'src/generated/graphql';
+import { CreateProgramGQL, ProgramLevel, ProgramType, UserSource } from 'src/generated/graphql';
 import { ProgramService } from '../service/program.service';
 
 @Component({
@@ -17,11 +17,11 @@ export class CreateProgramComponent implements OnInit {
   lang: string = "en";
   user;
   defaultLanguage = "english"
-  level: string = "Bigginer";
-  type: string = "Fondation";
+  level = ProgramLevel.Beginner;
+  type = ProgramType.Foundation;
   title: string = "";
   description: string = "";
-
+  levels = ProgramLevel;
 
   constructor(
     private router: Router,
@@ -49,39 +49,47 @@ export class CreateProgramComponent implements OnInit {
     this.defaultLanguage = e.target.id;
   }
   changeLevel(e) {
-    this.level = e.target.value;
+    if (e.target.value == ProgramLevel.Advance)
+      this.level = this.levels.Advance;
+    if (e.target.value == ProgramLevel.Beginner)
+      this.level = ProgramLevel.Beginner;
+    if (e.target.value == ProgramLevel.Intermediate)
+      this.level = ProgramLevel.Intermediate;
   }
   changeType(e) {
-    this.type = e.target.value;
-    console.log(this.type)
+    if (e.target.value == ProgramType.Foundation)
+      this.type = ProgramType.Foundation;
+    if (e.target.value == ProgramType.Specialization)
+      this.type = ProgramType.Specialization;
   }
 
   addProgram() {
     let program = {
-      category: this.user.id, source: "Learn", type: this.type, level: this.level,
+      category: this.user.id, source: UserSource.Learn, type: this.type, level: this.level,
       title: {[this.lang]: this.title},
       description: { [this.lang]: this.description},
       duration: 2222
     }
     console.log(program)
-    // this.createProgramGQL.mutate({ "program": program }).subscribe((result) => {
-    //   console.log(result.data.createProgram);
-    // }, (error) => {
-    //   console.log(error);
-    // })
-    console.log(this.videos)
-    console.log(this.images)
-    const formData = new FormData();
-    formData.append('poster', this.images[0])
-    formData.append('introVideo', this.videos[0])
-    const fields = Object.keys(program);
-    fields.map((field: string) => {
-      formData.append(field, program[field]);
-    });
-    this.programService.saveProgram(formData).subscribe(result => {
-      console.log(result);
-      
+    this.createProgramGQL.mutate({ program }).subscribe((result) => {
+      console.log(result.data.createProgram);
+      localStorage.setItem('myProgram', JSON.stringify(result.data.createProgram))
+    }, (error) => {
+      console.log(error);
     })
+    // console.log(this.videos)
+    // console.log(this.images)
+    // const formData = new FormData();
+    // formData.append('poster', this.images[0])
+    // formData.append('introVideo', this.videos[0])
+    // const fields = Object.keys(program);
+    // fields.map((field: string) => {
+    //   formData.append(field, program[field]);
+    // });
+    // this.programService.saveProgram(formData).subscribe(result => {
+    //   console.log(result);
+      
+    // })
   }
   onFileChangeImage(e) {
     if (e.target.files.length !== 0)

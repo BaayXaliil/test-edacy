@@ -27,10 +27,12 @@ header {
 .container .cards {
   display: flex;
   justify-content: space-around;
+  flex-flow: row wrap;
+  row-gap: 30px;
 }
 
 .card {
-  width: 40%;
+  width: 30%;
   padding: 20px;
   border-width: 2px;
 }
