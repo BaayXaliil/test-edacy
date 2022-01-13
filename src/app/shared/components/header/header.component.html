@@ -1,9 +1,10 @@
-<header [ngClass]="{'private': user == true}">
-  <div class="header" *ngIf="!user">
-    <div class="btn" *ngIf="!user"><span class="add">+</span> Customize</div>
+<header [ngStyle]="{'backgroundColor': platform?.theme.secondaryColor}">
+  <div class="header" [ngClass]="{'hidden': platform}">
+    <div class="btn"><span class="add">+</span> Customize</div>
   </div>
-  <div class="header user" *ngIf="user">
-    <img src="../../../assets/images/work.jpg" alt="">
+  <div class="header user" *ngIf="platform">
+    <img [src]="platform?.theme.logo" alt="" *ngIf="platform.theme.logo">
+    <img src="../../../../assets/images/work.jpg" alt="" *ngIf="!platform.theme.logo">
     <div class="button">
       <div class="btn btn-outline-secondary">Exit Preview</div>
     </div>
@@ -13,7 +14,8 @@
       <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
         <i class="fas fa-globe"></i>
-        EN
+        <span *ngIf="!platform">EN</span>
+        <span *ngIf="platform">{{platform?.defaultLanguage}}</span>
       </div>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" routerLink="#">Arabic</a></li>
@@ -23,14 +25,14 @@
     </div>
     <div class="program">Manage programs</div>
     <div class="notication">
-      <div *ngIf="user">37</div>
+      <div *ngIf="platform">37</div>
       <i class="fas fa-bell"></i>
     </div>
     <div class="profile">
-      <i class="fas fa-user-circle" *ngIf="!user"></i>
-      <img src="../../../../assets/images/avatar.webp" alt="" *ngIf="user" class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      <i class="fas fa-user-circle" [ngClass]="{'hidden': platform?.theme.favicon}"></i>
+      <img [src]="platform?.theme.favicon" alt="" [ngClass]="{'hidden': !platform?.theme.favicon}" class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" *ngIf="platform">
         <li><a class="dropdown-item" routerLink="/home">Profile Setting</a></li>
         <li><a class="dropdown-item" routerLink="/home">Customize</a></li>
         <li><a class="dropdown-item" routerLink="/home">Logout</a></li>

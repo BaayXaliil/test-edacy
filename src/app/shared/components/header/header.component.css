@@ -29,6 +29,8 @@ header.private {
 }
 .header-right .profile .fas {
   font-size: 35px;
+  display: inline-block;
+  margin: 8px;
 }
 .profile {
   width: 50px;
@@ -40,6 +42,12 @@ header.private {
   object-fit: cover;
   width: inherit;
   height: inherit;
+}
+.header-right span {
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 8px;
+  text-transform: uppercase;
 }
 .header-right .notication .fas {
   font-size: 20px;
@@ -91,4 +99,7 @@ header.private {
   text-transform: uppercase;
   font-weight: 500;
   background-color: inherit;
+}
+.hidden {
+  display: none !important;
 }

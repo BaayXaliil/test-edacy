@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from 'src/generated/graphql';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  user;
+  platform: Platform = null;
+  favicon = false;
   constructor() { }
 
   ngOnInit(): void {
-    this.user = false
+    if (localStorage.getItem('myProgram')) {
+      this.platform = JSON.parse(localStorage.getItem('platform'))
+    }
   }
 
 }

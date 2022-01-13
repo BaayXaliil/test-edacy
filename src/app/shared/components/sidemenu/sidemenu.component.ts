@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform, Program } from 'src/generated/graphql';
 
 @Component({
   selector: 'app-sidemenu',
@@ -8,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class SidemenuComponent implements OnInit {
 
   admin;
+  platform: Platform;
   constructor() { }
 
   ngOnInit(): void {
-    console.log(location.pathname)
-    if (location.pathname == "/preview/create-program")
+    if (localStorage.getItem('myProgram')) {
+      this.platform = JSON.parse(localStorage.getItem('platform'))
+    }
+    if (location.pathname == "/preview/create-program" || location.pathname == "/preview/new-program")
       this.admin = true;
   }
 
