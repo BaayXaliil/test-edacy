@@ -8,16 +8,14 @@ import { Platform, Program } from 'src/generated/graphql';
 })
 export class SidemenuComponent implements OnInit {
 
-  admin;
   platform: Platform;
   constructor() { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('myProgram')) {
+    if (localStorage.getItem('platform')) {
       this.platform = JSON.parse(localStorage.getItem('platform'))
+      console.log(this.platform)
     }
-    if (location.pathname == "/preview/create-program" || location.pathname == "/preview/new-program")
-      this.admin = true;
   }
 
   navigate(e) {

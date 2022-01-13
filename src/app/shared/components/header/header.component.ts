@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('myProgram')) {
+    if (localStorage.getItem('platform')) {
       this.platform = JSON.parse(localStorage.getItem('platform'))
     }
   }
