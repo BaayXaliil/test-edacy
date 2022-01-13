@@ -15,8 +15,8 @@ export class CustomizationComponent implements OnInit {
   platform;
   newdomain;
   files = [];
-  primaryColor;
-  secondaryColor;
+  primaryColor: string = "#36c2a4";
+  secondaryColor: string = "#ffd447";
   constructor(
     private upadateMyPlatformSubdomainGQL: UpdateMyPlatformSubDomainGQL,
     private homeService: HomeService,

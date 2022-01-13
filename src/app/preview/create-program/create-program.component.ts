@@ -66,14 +66,15 @@ export class CreateProgramComponent implements OnInit {
   addProgram() {
     let program = {
       category: this.user.id, source: UserSource.Learn, type: this.type, level: this.level,
-      title: {[this.lang]: this.title},
-      description: { [this.lang]: this.description},
+      title: {"fr": this.title},
+      description: {"fr": this.description},
       duration: 2222
     }
     console.log(program)
     this.createProgramGQL.mutate({ program }).subscribe((result) => {
       console.log(result.data.createProgram);
-      localStorage.setItem('myProgram', JSON.stringify(result.data.createProgram))
+      localStorage.setItem('myProgram', JSON.stringify(result.data.createProgram));
+      this.router.navigate(['/preview/new-program'])
     }, (error) => {
       console.log(error);
     })

@@ -10,16 +10,17 @@
     <div class="body">
       <div class="program-title">
         <div class="form-group">
-          <label for="program"><span>Program Title</span> <span>edit</span></label>
-          <input type="text" name="program" id="proram" disabled>
+          <label for="program"><span>Program Title</span> <span (click)="editTitle()">edit</span></label>
+          <input type="text" name="program" id="proram" [disabled]="!showInputTitle" [value]="newProgram.title">
         </div>
       </div>
 
       <div class="program-description">
         <div class="form-group">
-          <label for="description" class="program-description-title"><span>Program Description</span> <span>edit</span></label>
-          <textarea disabled name="description" id="description" rows="3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quaerat sunt. Esse eos facilis at non voluptatem, cum cumque consequatur impedit voluptas vel iusto assumenda magnam sed laudantium in animi?
-          </textarea>
+          <label for="description" class="program-description-title"><span>Program Description</span> <span
+              (click)="editDescription()">edit</span></label>
+          <textarea [disabled]="!showInputDescription" name="description" id="description" rows="3"
+            [value]="newProgram.description">          </textarea>
         </div>
       </div>
 
@@ -28,7 +29,7 @@
         <div class="upload">
           <input type="file" name="poster" id="upload-favicon" ref="file" (change)="onFileChangeImage($event)">
           <div class="upload-image-info">
-            <div  class="upload-favicon img">
+            <div class="upload-favicon img">
               <i class="fas fa-image" *ngIf="!image"></i>
               <span *ngIf="!image">Image Thumbnail</span>
               <img [src]="image" alt="" *ngIf="image">
@@ -43,7 +44,7 @@
           </div>
 
           <label class="browser" for="upload-favicon">
-            <div  class="btn btn-outline-secondary">browse</div>
+            <div class="btn btn-outline-secondary">browse</div>
           </label>
         </div>
       </div>
@@ -54,15 +55,18 @@
             (change)="onFileChangeVideo($event)">
           <div class="upload-image-info">
             <div class="upload-favicon">
-              <i class="fas fa-image"></i>
-              <span >Video Thumbnail</span>
-              <!-- <img [src]="video" alt="" *ngIf="video"> -->
+              <i class="fas fa-image" *ngIf="!video"></i>
+              <span *ngIf="!video">Video Thumbnail</span>
+              <video  controls *ngIf="video" width="110" height="100">
+                  <source [src]="video" type="video/mp4">
+                    <p>Your browser does not support HTML5 videos. Here is <a [href]="video">a link to download the video</a></p>
+              </video>
             </div>
             <div class="info-image" *ngIf="video">
               <div class="img-name">{{videoName}}</div>
               <div class="img-desc">
-                <p>Size: {{videoSize}}</p>
-                <p>Format: {{fideoFormat}}</p>
+                <p>Size: {{videoSize}} KB</p>
+                <p>Format: {{videoFormat}}</p>
                 <p>Length: 80 seconds</p>
               </div>
             </div>
@@ -74,7 +78,7 @@
       </div>
     </div>
     <div class="button">
-      <button class="btn">+Add Curriculum</button>
+      <button class="btn" (click)="updateProgram()">+Add Curriculum</button>
     </div>
   </div>
 </div>

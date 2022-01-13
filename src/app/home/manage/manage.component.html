@@ -2,7 +2,7 @@
 <div class="page-container">
   <div class="container">
     <div class="button">
-      <button class="btn btn-outline-secondary" routerLink="/auth/login-domain">Create a program</button>
+      <button class="btn btn-outline-secondary" routerLink="/preview/create-program">Create a program</button>
     </div>
     <div class="body" *ngIf="program">
       <div class="body-content">
@@ -28,7 +28,7 @@
       </div>
       <div class="buttons">
         <button class="btn btn-outline-secondary" routerLink="/auth/login-domain">Manage content</button>
-        <button class="btn btn-outline-secondary" routerLink="/auth/login-domain">Manage program</button>
+        <button class="btn btn-outline-secondary">Manage program</button>
       </div>
     </div>
     <div *ngIf="!program">
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="program">
-          <div class="content" routerLink="/auth/login-domain">
+          <div class="content" routerLink="/preview/create-program">
             <div class="logo">
               <img src="../../assets/images/video.svg" alt="">
             </div>
