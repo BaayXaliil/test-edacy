@@ -12,7 +12,8 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.route.snapshot.params
+    let token = this.route.snapshot.params
+    console.log(token)
   }
 
 }
