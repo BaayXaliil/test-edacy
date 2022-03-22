@@ -8,7 +8,7 @@ import { OverviewComponent } from './overview/overview.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'overview/:token', component: OverviewComponent },
+  { path: 'overview/:activation_token', component: OverviewComponent },
   { path: 'manage', component: ManageComponent },
   { path: 'customization', component: CustomizationComponent }
 ];

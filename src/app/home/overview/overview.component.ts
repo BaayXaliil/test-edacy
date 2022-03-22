@@ -11,13 +11,8 @@ export class OverviewComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(observer =>{
-      console.log(observer);
-    })
-    this.route.queryParams.subscribe(params => {
-      console.log(params)
-    })
-    console.log(this.route.snapshot.params)
+    
+    this.route.snapshot.params
   }
 
 }
