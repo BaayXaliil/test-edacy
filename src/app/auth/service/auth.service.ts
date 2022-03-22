@@ -15,6 +15,9 @@ export class AuthService {
     return this.httpClient.post(`${environment.API_URL}/signin`, credentials);
   }
 
+  activationCompte(credentials) {
+    return this.httpClient.post(`${environment.API_URL}/user/activation`, credentials)
+  }
   registerToken(token): void {
     localStorage.setItem('token', token);
   }
